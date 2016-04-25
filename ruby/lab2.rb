@@ -1,9 +1,9 @@
-puts "สวัสดีจ้าฉันชื่อ บุษบา"
-print "คุณชื่ออะไร หึ?"
+puts "Hello I'm Polawat"
+print "What is your name?"
 name = gets.chomp
-puts "สวัสดีจ้า #{name}"
-print "คุณ #{name} อายุเท่าไร หึ"
+puts "Hi {#name}"
+print "K.#{name} How old are you?"
 ages = gets.chomp
-puts "ทำไมคุณ #{name} แก่จัง"
+puts "Nice too miss you"
 
 
