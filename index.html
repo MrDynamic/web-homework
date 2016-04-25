@@ -30,7 +30,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HTML <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="html/lab1.html">Lab 1</a></li>
+            <li><a href="#" onclick="showContent('html/lab1.html');return false;">Lab 1</a></li>
             <li><a href="html/html5.html">HTML 5</a></li>
             <li><a href="html/table.html">Table</a></li>
             <li><a href="html/table-nthChild.html">Table with nthChild</a></li>
@@ -42,6 +42,7 @@
             <li><a href="html/form_part2.html">Form with CSS</a></li>
           </ul>
         </li>
+        
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="https://github.com/MrDynamic/web-homework">Source Code</a></li>        
@@ -69,7 +70,7 @@
      <div class="col-md-offset-3 col-md-6">
            <div class="adv-table">
                   <div class="space15" style="margin:50px !important;"></div>
-                  
+                  <div id="content">&nbsp;</div>
               </div>
             </div>
        </div>
@@ -78,5 +79,10 @@
  </div>
 <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function showContent(page){
+        $("#content").load(page);
+    }
+</script>
 </body>
 </html>
