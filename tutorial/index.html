@@ -133,10 +133,9 @@
 	
 </pre>
         <h3 id="view-customer">M_Customer.php</h3>
-        <h5>application/Model/M_Customer.php</h5>
+        <h5>application/models/M_Customer.php</h5>
         <div>
         <pre class="brush: php;">
-          <?php
 
 class M_Customer extends CI_Model{
 
@@ -176,6 +175,63 @@ class M_Customer extends CI_Model{
 
 }
         </pre>
+                <h3 id="view-customer">layout.php</h3>
+        <h5>application/views/layout.php</h5>
+        <div>
+        <pre class="brush: php;">
+          <!DOCTYPE html>
+<html>
+<head>
+  <title>Codeigniter Tutorial</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <style>
+      .txt-not-found{
+        text-align: center;
+        color: #585858;
+      }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <?php
+        echo anchor('customer','Codeigniter Tutorial',array('class'=>'navbar-brand'));
+      ?>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+       <li>
+          <?php 
+            echo anchor('customer/create', 'Create Customer');
+          ?>
+       </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+	 <div class="row">
+		 <div class="col-md-offset-3 col-md-6">
+       
+            <!-- Content -->
+    		 	  <?php (isset($yeild) && !empty($yeild))? print $yeild:'';?>      
+       </div>
+	 </div>
+ </div>
+<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+        </pre>
+        </div>
         </div>
                   </div>
               </div>
