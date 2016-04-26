@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Codeigniter Tutorial</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <style type="text/css">
+      .navbar-custom {
+    background-color:#229922;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Codeigniter Tutorial</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#customer" >Customer.php </a>
+        </li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/MrDynamic/web-homework">Source Code</a></li>        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-8">
+            <div class="adv-table">
+            <div class="space15"></div>       
+		</div>
+    </div>
+</div>
+<div class="row">
+	<div class="col-md-offset-3 col-md-8">
+		<div class="adv-table">
+		<div class="space15"></div>
+			
+		</div>
+	</div>
+</div>
+   <div class="row">
+     <div class="col-md-offset-3 col-md-6">
+           <div class="adv-table">
+                  <div class="space15" style="margin:100px !important;"></div>
+                  <h3 id="view-customer">Customer.php</h3>
+                  <h5>application/controllers/Customer.php</h5>
+                  <div>
+                    <pre class="brush: php;">
+	Class Customer extends CI_Controller{
+
+	public function __construct()
+    {
+        parent::__construct();
+        $this->load->model(array('M_Customer'=>'cust'));
+    }
+
+
+	public function index(){
+		$listData["list_data"] = $this->cust->getAllData();
+		$html['yeild'] = $this->load->view('view_customer',$listData,true);
+		$this->load->view('layout.php',$html);
+
+	}
+
+
+	public function create(){
+		$html['yeild'] = $this->load->view('create_customer','',true);
+		$this->load->view('layout.php',$html);
+	}
+
+	public function save(){
+		unset($this->input->post()['action']);
+		$this->cust->insert($this->input->post());
+		redirect('customer');
+	}
+
+	public function edit(){
+		$customerId = $this->uri->segment(3);
+		if($customerId){
+			$data = $this->cust->getDataByCriteria(array('custId'=>$customerId));
+			$editData['editData'] = $data[0];
+			$editData['action'] = 'edit';
+			$html['yeild'] = $this->load->view('create_customer',$editData,true);
+			$this->load->view('layout.php',$html);
+			
+		}
+	}
+
+	public function update(){
+
+		$customerId = $this->uri->segment(3);
+		$this->cust->update($this->input->post(),array('custId'=>$customerId));
+		redirect('customer');
+	}
+
+	public function delete(){
+		$this->cust->delete(array('custId'=>$this->uri->segment(3)));
+		redirect('customer');
+	}
+
+	
+
+
+}
+	
+</pre>
+        <h3 id="view-customer">M_Customer.php</h3>
+        <h5>application/Model/M_Customer.php</h5>
+        <div>
+        <pre class="brush: php;">
+          <?php
+
+class M_Customer extends CI_Model{
+
+	private $table = 'tbl_customer';
+
+	public function __construct()
+    {
+        parent::__construct();
+    }
+
+	public function insert($data){
+        $this->db->insert($this->table,$data);
+    }
+
+    public function getAllData(){
+        $query =  $this->db->get($this->table);
+        return $query->result();
+    }
+
+    
+	public function getDataByCriteria($criteria,$limit=""){
+    	$query = $this->db->get_where($this->table,$criteria);
+    	return $query->result();
+    }
+
+    public function update($data,$criteria){
+        $this->db->update($this->table,$data,$criteria);
+    }
+
+	public function delete($criteria){
+		$this->db->delete($this->table,$criteria);
+	}
+	
+    public function __destruct() {
+		$this->db->close();
+   	}
+
+}
+        </pre>
+        </div>
+                  </div>
+              </div>
+            </div>
+       </div>
+   </div>
+   
+ </div>
+<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../scripts/shCore.js"></script>
+	<script type="text/javascript" src="../scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../scripts/shBrushPhp.js"></script>
+	<link type="text/css" rel="stylesheet" href="../styles/shCoreDefault.css"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+</body>
+</html>
