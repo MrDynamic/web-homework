@@ -116,13 +116,17 @@
                   <h5>tutorial_db</h5>
                   <div>
                     <pre class="brush:sql;">
+                     -- Create database tutorial_db  
                      CREATE DATABASE tutorial_db charset utf8 collate utf8_general_ci;
+                     -- End create database
                     </pre>
                   </div>
                   <h3 id="create_db">Create Table</h3>
                   <h5>tbl_customer</h5>
                   <div>
                     <pre class="brush:sql;">
+                      --
+                      --
                      CREATE TABLE `tbl_customer` (
                       `custId` int(11) PRIMARY KEY  NOT NULL AUTO_INCREMENT,
                       `firstname` varchar(50) NOT NULL,
@@ -130,6 +134,8 @@
                       `email` varchar(50) DEFAULT NULL,
                       `c_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
                     );
+                    --
+                    --
                     </pre>
                   </div>
                   <h3 id="autoload">autoload.php</h3>
@@ -523,6 +529,7 @@ class M_Customer extends CI_Model{
   <script src="../scripts/shBrushCss.js" type="text/javascript"></script>
   <script src="../scripts/shBrushPhp.js" type="text/javascript"></script>
   <script src="../scripts/shBrushSql.js" type="text/javascript"></script>
+  
 	<script type="text/javascript">
 	  SyntaxHighlighter.all();
 	  function goToByScroll(id){
