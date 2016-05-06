@@ -326,7 +326,7 @@ class M_Customer extends CI_Model{
     }
 
     
-	public function getDataByCriteria($criteria,$limit=""){
+	public function getDataByCriteria($criteria){
     	$query = $this->db->get_where($this->table,$criteria);
     	return $query->result();
     }
