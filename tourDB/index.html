@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tour Database</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <style type="text/css">
+      .navbar-custom {
+    background-color:#229922;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+
+  /*.syntaxhighlighter {*/
+  /*  width: 500px;*/
+  /*  height: 500px;*/
+  /*  overflow-y: auto !important;*/
+  /*  overflow-x: auto !important;*/
+    
+  /*}*/
+  </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-8">
+            <div class="adv-table">
+            <div class="space15"></div>       
+		</div>
+    </div>
+</div>
+<div class="row">
+	<div class="col-md-offset-3 col-md-8">
+		<div class="adv-table">
+		<div class="space15"></div>
+			
+		</div>
+	</div>
+</div>
+   <div class="row">
+     <div class="col-md-10">
+           <div class="adv-table">
+                  <div class="space15" style="margin:100px !important;"></div>
+                  <h3 id="create_db">Create Database</h3>
+                  <h5>tour_db</h5>
+                  <div>
+                    <pre class="brush:sql;">
+                     -- Create database tutorial_db  
+                     CREATE DATABASE tour_db charset utf8 collate utf8_general_ci;
+                     -- End create database
+                    </pre>
+                  </div>
+                  <h3 id="create_db">Create Table</h3>
+                  <h5>tbl_customer</h5>
+                  <div>
+                    <pre class="brush:sql;">
+                      --
+                      -- Create table
+                     CREATE TABLE `tbl_customer` (
+                      `custId` int(11) PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+                      `firstname` varchar(50) NOT NULL,
+                      `lastname` varchar(50) NOT NULL,
+                      `email` varchar(50) DEFAULT NULL,
+                      `c_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+                    );
+                    --
+                    --
+                    </pre>
+                  </div>
+                  
+        
+        </div>
+                  </div>
+              </div>
+            </div>
+       </div>
+   </div>
+   
+ </div>
+<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <link href="../styles/shCore.css" rel="stylesheet" type="text/css">
+  <link href="../styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+  <script src="../scripts/shCore.js" type="text/javascript"></script>
+  <script src="../scripts/shAutoloader.js" type="text/javascript"></script>
+  <script src="../scripts/shBrushXml.js" type="text/javascript"></script>
+  <script src="../scripts/shBrushJScript.js" type="text/javascript"></script>
+  <script src="../scripts/shBrushCss.js" type="text/javascript"></script>
+  <script src="../scripts/shBrushPhp.js" type="text/javascript"></script>
+  <script src="../scripts/shBrushSql.js" type="text/javascript"></script>
+  
+	<script type="text/javascript">
+	  SyntaxHighlighter.all();
+	  function goToByScroll(id){
+          // Remove "link" from the ID
+        id = id.replace("link", "");
+          // Scroll
+        $('html,body').animate({
+            scrollTop: $("#"+id).offset().top},
+            'slow');
+    }
+
+	 </script>
+
+</body>
+</html>
